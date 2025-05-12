@@ -3,8 +3,8 @@ import Hint from './Hint';
 import SkillDetails from './SkillDetails';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaWordpress, FaPython, FaBootstrap, FaDocker, FaGithub, FaFigma } from "react-icons/fa";
-import { SiTypescript, SiPostgresql, SiVisualstudiocode, SiMui } from "react-icons/si";
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaAngular, FaNodeJs, FaWordpress, FaPython, FaBootstrap, FaDocker, FaGitAlt, FaGithub, FaFigma } from "react-icons/fa";
+import { SiTypescript, SiPostgresql, SiVisualstudiocode, SiMui, SiZod, SiPrisma, SiTailwindcss, SiLeaflet, SiShadcnui } from "react-icons/si";
 import { Box, Typography, Fade, Zoom } from '@mui/material';
 
 const Skills = () => {
@@ -30,20 +30,27 @@ const Skills = () => {
             { name: 'JavaScript', icon: FaJs, color: '#f7e02d', bgColor: '#000' },
             { name: 'React.js', icon: FaReact, color: '#61dafb', bgColor: '#fff' },
             { name: 'Material UI', icon: SiMui, color: '#3f51b5', bgColor: '#fff' },
+            { name: 'Angular', icon: FaAngular, color: '#f00', bgColor: '#fff' },
+            { name: 'TailwindCSS', icon: SiTailwindcss, color: '#38BDF8', bgColor: '#0F172A' },
             { name: 'TypeScript', icon: SiTypescript, color: '#007acc', bgColor: '#fff' },
+            { name: 'Shadcn/UI', icon: SiShadcnui, color: '#fff', bgColor: '#09090B' },
+            { name: 'Leaflet', icon: SiLeaflet, color: '#199900', bgColor: '#F0FAF0' },
             { name: 'BootStrap', icon: FaBootstrap, color: '#563d7c', bgColor: '#fff'},
-            { name: 'WordPress', icon: FaWordpress, color: '#0073aa', bgColor: '#fff' }
+            { name: 'WordPress', icon: FaWordpress, color: '#0073aa', bgColor: '#fff' },
         ],
         backEnd: [
             { name: 'Node.js', icon: FaNodeJs, color: '#8cc84b', bgColor: '#fff' },
             { name: 'Python', icon: FaPython, color: '#306998', bgColor: '#fff' },
+            { name: 'Zod', icon: SiZod, color: '#3068C5', bgColor: '#E8F1FD' },
+            { name: 'Prisma ORM', icon: SiPrisma, color: '#fff', bgColor: '#E0F2FE' },
             { name: 'PostgreSQL', icon: SiPostgresql, color: '#fff', bgColor: '#336791' },
         ],
         ferramentas: [
-            { name: 'GitHub', icon: FaGithub, color: '#181717', bgColor: '#fff' },
             { name: 'VS Code', icon: SiVisualstudiocode, color: '#007acc', bgColor: '#fff' },
-            { name: 'Figma', icon: FaFigma, color: '#f24e1e', bgColor: '#fff' },
             { name: 'Docker', icon: FaDocker, color: '#2496ed', bgColor: '#fff' },
+            { name: 'GitHub', icon: FaGithub, color: '#181717', bgColor: '#fff' },
+            { name: 'Git', icon: FaGitAlt, color: '#f1502f', bgColor: '#fff' },
+            { name: 'Figma', icon: FaFigma, color: '#f24e1e', bgColor: '#fff' },
         ]
     };
 
@@ -54,12 +61,12 @@ const Skills = () => {
           slidesToSlide: 2
         },
         tablet: {
-          breakpoint: { max: 1024, min: 464 },
+          breakpoint: { max: 1024, min: 600 },
           items: 3,
           slidesToSlide: 1
         },
         mobile: {
-          breakpoint: { max: 464, min: 0 },
+          breakpoint: { max: 599, min: 0 },
           items: 2,
           slidesToSlide: 1
         }
@@ -123,6 +130,22 @@ const Skills = () => {
                     opacity: 1,
                     filter: 'brightness(1.2)'
                 },
+                '@media(min-width: 600px) and (max-width: 700px)': {
+                    '.skill-carousel-container ul': {
+                        margin: '0 10px'
+                    },
+                    '.skill-carousel-container button': {
+                        margin: '-5px'
+                    },
+                    '.skill-container': {
+                        padding: 0
+                    }
+                },
+                '@media (max-width: 560px)': {
+                    '.skill-carousel-container ul': {
+                        margin: 'auto 0px',
+                    },
+                },
                 '@media (max-width: 430px)': {
                     '.skill-container': {
                         padding: 0,
@@ -145,6 +168,7 @@ const Skills = () => {
                     '.skill-carousel-container button': {
                         minWidth: '30px',
                         minHeight: '30px',
+                        margin: '-10px'
                     },
                     '.skill-carousel-container ul': {
                         margin: 'auto 0px',

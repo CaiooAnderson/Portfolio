@@ -2,9 +2,10 @@ import { useState, useRef } from 'react';
 import { Box, Button, Typography, Modal, Card, CardContent, CardActions, Fade, Zoom } from '@mui/material';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaPython} from "react-icons/fa";
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaPython, FaAngular} from "react-icons/fa";
+import { SiJavascript, SiTypescript } from 'react-icons/si';
 // import { FaBootstrap, FaWordpress } from "react-icons/fa";
-// import { SiTypescript, SiPostgresql, SiMui } from "react-icons/si";
+// import { SiPostgresql, SiMui } from "react-icons/si";
 import CloseIcon from '@mui/icons-material/Close';
 import Hint from './Hint';
 
@@ -33,11 +34,26 @@ const Projects = () => {
     const capas = importAll(require.context('../assets/projetos-capa', false, /\.(gif)$/));
 
     const projetos = [
+        {
+            name: 'SW-Info',
+            categoria: ['Front-End', 'Back-End'],
+            imagemProjeto: capas[0],
+            desc: 'Projeto utilizando Angular, Angular Material e aprimorando conhecimento em TypeScript.',
+            linguagens: [<FaAngular />, <SiTypescript />, <FaCss3Alt />, <FaHtml5 />],
+            repoLink: 'https://github.com/CaiooAnderson/SW-Info',
+            siteLink: 'https://sw-info-priv.vercel.app/' },
+        {
+            name: 'Portfólio',
+            categoria: 'Front-End',
+            imagemProjeto: capas[1],
+            desc: 'Portfólio pessoal para aprimorar e compartilhar meu conhecimento.',
+            linguagens: [<FaHtml5 />, <FaCss3Alt />, <SiJavascript />, <FaReact />],
+            repoLink: 'https://github.com/CaiooAnderson/Portfolio',
+            siteLink: 'https://portfolio-caio-zeta.vercel.app/' },
         { 
             name: 'Cartas Tridimensionais', 
             categoria: 'Front-End', 
-            imagemProjeto: capas[0], 
-            imagensDemonstracao: [capas[1], capas[2]], 
+            imagemProjeto: capas[2],  
             desc: 'Experiência visual interativa com cartas em 3D e animações dinâmicas.', 
             linguagens: [<FaHtml5 />, <FaCss3Alt />], 
             repoLink: 'https://github.com/CaiooAnderson/Star-Card', 
@@ -45,8 +61,7 @@ const Projects = () => {
         { 
             name: 'Tabela de Ranking', 
             categoria: 'Front-End', 
-            imagemProjeto: capas[1], 
-            imagensDemonstracao: [capas[1], capas[2]], 
+            imagemProjeto: capas[3],  
             desc: 'Tabela com a temática de Pokémon para criação e gerenciamento de novos usuários.', 
             linguagens: [<FaHtml5 />, <FaCss3Alt />, <FaJs />], 
             repoLink: 'https://github.com/CaiooAnderson/Tabela-de-Jogos', 
@@ -54,8 +69,7 @@ const Projects = () => {
         { 
             name: 'Pomodoro (Temporizador)', 
             categoria: 'Outros', 
-            imagemProjeto: capas[2], 
-            imagensDemonstracao: [capas[1], capas[2]], 
+            imagemProjeto: capas[4],  
             desc: 'Ferramenta de produtividade com ciclos personalizáveis para foco e descanso.', 
             linguagens: [<FaHtml5 />, <FaCss3Alt />, <FaJs />], 
             repoLink: 'https://github.com/CaiooAnderson/timer', 
@@ -63,8 +77,7 @@ const Projects = () => {
         { 
             name: 'Calculadora de Imposto de Renda', 
             categoria: 'Back-End', 
-            imagemProjeto: capas[3], 
-            imagensDemonstracao: [capas[1], capas[2]], 
+            imagemProjeto: capas[5],  
             desc: 'Calculadora intuitiva para estimar o imposto de renda com base em rendimentos.', 
             linguagens: [<FaPython />], 
             repoLink: 'https://github.com/CaiooAnderson/CVTI', 
@@ -72,15 +85,14 @@ const Projects = () => {
         { 
             name: 'Gestão de Equipes', 
             categoria: 'Outros', 
-            imagemProjeto: capas[4], 
-            imagensDemonstracao: [capas[1], capas[2]], 
+            imagemProjeto: capas[6],  
             desc: 'Aplicação para criar e gerenciar times, distribuindo equipes.', 
             linguagens: [<FaHtml5 />, <FaCss3Alt />, <FaJs />, <FaReact />, <FaNodeJs />], 
             repoLink: 'https://github.com/CaiooAnderson/project-team-creator', 
             siteLink: 'https://project-team-creator.vercel.app/' },
     ];
 
-    const projetosFiltrados = projetos.filter(project => filter === 'Todos' || project.categoria === filter);
+    const projetosFiltrados = projetos.filter(project => filter === 'Todos' || project.categoria.includes(filter));
     
     const handleFilterChange = (newFilter) => {
         setFilter(newFilter);
@@ -115,11 +127,11 @@ const Projects = () => {
             slidesToSlide: 1
         },
         tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 1,
+            breakpoint: { max: 1024, min: 900 },
+            items: 2,
         },
         mobile: {
-            breakpoint: { max: 464, min: 0 },
+            breakpoint: { max: 899, min: 0 },
             items: 1
         }
     };
