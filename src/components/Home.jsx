@@ -51,7 +51,7 @@ const Home = () => {
                                           '& .home-button-icon': {
                                             animation: 'rotateBack 2s forwards'
                                           }
-                                          }} onClick={() => window.open('https://drive.google.com/file/d/12e3l1kPVVyJGVncxYg4z9xddf70HEC6d/view?usp=drive_link', '_blank')}>
+                                          }} onClick={() => window.open('https://drive.google.com/file/d/1F6yiW-Y4FMXYQJKprqJDOsoCsU_Vp_G3/view?usp=sharing', '_blank')}>
             <Typography className='home-button-text' variant='subtitle2'
               sx= {{ 
                     fontSize: { xs: '0.8rem', sm: '0.9rem', md: '1rem', lg: '1.1rem', xl: '1.2rem' } 
